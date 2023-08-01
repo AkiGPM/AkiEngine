@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+  <style>
+    
+    #my-canvas { border: 1px solid gray; }
+    
+  </style>
+</head>
+<body>
+  <h1>Aki Engine Test</h1>
+  <canvas id="my-canvas" width="200" height="200"></canvas>
+  
+  <button onclick="update()">Update</button>
+  <button onclick="Gravity() ">Push</button> 
+  <script>
+
+    var canvas = document.querySelector('#my-canvas');
+    var context = canvas.getContext('2d')
+    // Game Values
+    var GravSpeed = 0.05;
+
+    function drawSquare(x, y, width, height) {
+        context.beginPath();
+        context.fillStyle = "#ff0000";
+        context.fillRect(x, y, width, height); // rect(x, y, width, height)
+        context.stroke();
+        return y;
+         
+    }
+
+function Gravity() {
+       newY = y - GravSpeed;
+       drawSquare(30,newY,50,50)
+} 
+function update() {
+
+    context.clearRect(0,0,200,200)
+    Gravity();
+   } 
+
+  </script>
+</body>
+</html>
